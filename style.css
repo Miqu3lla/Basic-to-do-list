@@ -17,12 +17,15 @@ body {
 
 .lists li {
     display: flex;
-    justify-content: space-around;
+    align-items: center;
+    justify-content: space-between;
     background: lightskyblue;
     width:200px;
     margin-bottom: 20px;
     font-size: 20px;
+    overflow-wrap: anywhere;
 }
 .remove-btn {
-    height: 20px;
+    height: 30px;
+    width: 40px
 }
