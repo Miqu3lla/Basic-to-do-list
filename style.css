@@ -32,8 +32,6 @@ body {
 }
 
 .btn-container .add-btn, .remove-btn {
-    display: flex;
-    flex-direction: row;
     background-color: black;
 }
 

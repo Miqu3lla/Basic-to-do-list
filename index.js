@@ -1,50 +1,70 @@
-//add a button function
+// Add task when the main "Add" button is clicked
 document.querySelector("button").addEventListener("click", function(){
     todo()
 })
 
+// Add task when Enter is pressed inside the input field
 document.querySelector(".task").addEventListener("keydown", function(event){
     if (event.key == "Enter") {
         todo()
     }
 })
-
-
 function todo () {
-    let box = document.querySelector(".task");
-    let li = document.createElement("li");//creates a list eleent whenever the button is pressed
-    let input = document.querySelector(".task").value; //gets the value of the text input
+    let box = document.querySelector(".task"); // text input element
+    let li = document.createElement("li");     // create a new list item
+    let input = document.querySelector(".task").value; // get input value
+
+    // If input is empty, warn the user and stop
     if (input == "") {
-        alert ("please input a Text")
+        alert("please input a Text");
+        return; // stop function here so empty items don’t get added
     }
-    li.textContent = input;//gets the input of the text input into the li
-    document.querySelector(".lists").appendChild(li) //then append it so that the list gets visible
-    box.value = "";//clears the text box after inputting a task
-    let remove = document.createElement("button"); //creates a remove button
-    remove.textContent = "❌"
-    remove.classList.add("remove-btn")
-    let add = document.createElement("button")
-    add.textContent = "✔️"
-    add.classList.add("add-btn")
-    let btnGroup = document.createElement("div")
-    btnGroup.classList.add("btn-container")
-    btnGroup.appendChild(add)
-    btnGroup.appendChild(remove)
-    li.appendChild(btnGroup)
-    let buton = document.querySelectorAll(".btn-container").length
-    for (let i = 0; i< buton; i++){
-        for (j = 0; j <buton; j++) {
-    document.querySelectorAll(".remove-btn")[i].addEventListener("click", function(){
-        this.parentElement.parentElement.remove(remove)
 
-    })
+    // Set the text of the new list item
+    li.textContent = input;
 
-    document.querySelectorAll(".add-btn")[j].addEventListener("click", function() {
-             this.parentElement.parentElement.classList.toggle("done")
-             setTimeout(() => {
-                this.parentElement.parentElement.remove(add)
-             },3000)
-    })
-}
-}
+    // Append the list item to the <ul> (class="lists")
+    document.querySelector(".lists").appendChild(li);
+
+    // Clear the input field after adding task
+    box.value = "";
+
+    // Create the ❌ remove button
+    let remove = document.createElement("button");
+    remove.textContent = "❌";
+    remove.classList.add("remove-btn");
+
+    // Create the ✔️ done button
+    let add = document.createElement("button");
+    add.textContent = "✔️";
+    add.classList.add("add-btn");
+
+    // Wrap buttons in a container div
+    let btnGroup = document.createElement("div");
+    btnGroup.classList.add("btn-container");
+    btnGroup.appendChild(add);
+    btnGroup.appendChild(remove);
+
+    // Append button group to the list item
+    li.appendChild(btnGroup);
+
+    // Get all button containers (so you can add listeners to each)
+    let buton = document.querySelectorAll(".btn-container").length;
+
+    // Loop through all tasks and attach event listeners
+    for (let i = 0; i < buton; i++) {
+        // ❌ Remove button → deletes the list item immediately
+        document.querySelectorAll(".remove-btn")[i].addEventListener("click", function(){
+            this.parentElement.parentElement.remove();
+        })
+
+        // ✔️ Done button → toggles "done" class and removes after 3s
+        document.querySelectorAll(".add-btn")[i].addEventListener("click", function() {
+
+            this.parentElement.parentElement.classList.toggle("done");
+            setTimeout(() => {
+                this.parentElement.parentElement.remove();
+            }, 3000);
+        })
+    }
 }
