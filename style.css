@@ -19,13 +19,24 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    list-style-type: none;
     background: lightskyblue;
     width:200px;
     margin-bottom: 20px;
     font-size: 20px;
     overflow-wrap: anywhere;
 }
-.remove-btn {
+.btn-container{
+    
     height: 30px;
-    width: 40px
+}
+
+.btn-container .add-btn, .remove-btn {
+    display: flex;
+    flex-direction: row;
+    background-color: black;
+}
+
+.done {
+    text-decoration-line: line-through;
 }
