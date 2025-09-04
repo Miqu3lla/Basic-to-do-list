@@ -19,10 +19,13 @@ function todo () {
         alert("please input a Text");
         return; // stop function here so empty items don’t get added
     }
+    //create a span text for the text inside 
+    let text = document.createElement("span");
 
-    // Set the text of the new list item
-    li.textContent = input;
-
+    // Set the text of the new list item in the span
+    text.textContent = input;
+    li.appendChild(text)
+    
     // Append the list item to the <ul> (class="lists")
     document.querySelector(".lists").appendChild(li);
 
@@ -50,7 +53,7 @@ function todo () {
 
     // Get all button containers (so you can add listeners to each)
     let buton = document.querySelectorAll(".btn-container").length;
-
+    
     // Loop through all tasks and attach event listeners
     for (let i = 0; i < buton; i++) {
         // ❌ Remove button → deletes the list item immediately
@@ -60,11 +63,18 @@ function todo () {
 
         // ✔️ Done button → toggles "done" class and removes after 3s
         document.querySelectorAll(".add-btn")[i].addEventListener("click", function() {
+            let isDone = this.parentElement.previousElementSibling.classList.toggle("done");
+             if (isDone) {
 
-            this.parentElement.parentElement.classList.toggle("done");
-            setTimeout(() => {
+              setTimeout(() => {
                 this.parentElement.parentElement.remove();
             }, 3000);
-        })
+        }
+            else {
+                clearTimeout()
+            }
+    }
+)
+        
     }
 }
