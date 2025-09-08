@@ -10,15 +10,15 @@ document.querySelector(".task").addEventListener("keydown", function(event){
     }
 })
 function todo () {
+    
     let box = document.querySelector(".task"); // text input element
     let li = document.createElement("li");     // create a new list item
+    li.classList.add("list-animation")
     let input = document.querySelector(".task").value; // get input value
 
     // If input is empty, warn the user and stop
-    if (input == "") {
-        alert("please input a Text");
-        return; // stop function here so empty items don’t get added
-    }
+     input == "" ? alert("please input a Text"): {}; // stop function here so empty items don’t get added
+    
     //create a span text for the text inside 
     let text = document.createElement("span");
 
@@ -28,7 +28,7 @@ function todo () {
     
     // Append the list item to the <ul> (class="lists")
     document.querySelector(".lists").appendChild(li);
-
+    
     // Clear the input field after adding task
     box.value = "";
 
@@ -53,12 +53,9 @@ function todo () {
 
     // Get all button containers (so you can add listeners to each)
     let buton = document.querySelectorAll(".btn-container").length;
-    
-  
-    
         // ❌ Remove button → deletes the list item immediately
             remove.addEventListener("click", function(){
-
+             li.classList.add("list-remove-animation")
             this.parentElement.parentElement.remove();
 
             })
@@ -66,15 +63,9 @@ function todo () {
             add.addEventListener("click", function() {
              let underline = this.parentElement.previousElementSibling.classList.toggle("done");
              
-             if (underline) {
-                
-              timer =  setTimeout(() => {
-                this.parentElement.parentElement.remove();
-            }, 3000);
-        }
-            else {
-                clearTimeout(timer)
-            }
+             return underline ? timer =  setTimeout(() => {this.parentElement.parentElement.remove();
+            },2500) : clearTimeout(timer);
+            
             
     }
 )
