@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: #0D1164;
+    background-color: #40436c;
 }
 
 .container {
@@ -25,7 +25,7 @@ body {
     align-items: center;
     justify-content: space-between;
     list-style-type: none;
-    background-color: #a2289c;
+    background-color: #F78D60;
     width:270px;
     margin-bottom: 20px;
     font-size: 20px;

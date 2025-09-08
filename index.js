@@ -54,27 +54,30 @@ function todo () {
     // Get all button containers (so you can add listeners to each)
     let buton = document.querySelectorAll(".btn-container").length;
     
-    // Loop through all tasks and attach event listeners
-    for (let i = 0; i < buton; i++) {
+  
+    
         // ❌ Remove button → deletes the list item immediately
-        document.querySelectorAll(".remove-btn")[i].addEventListener("click", function(){
+            remove.addEventListener("click", function(){
+
             this.parentElement.parentElement.remove();
-        })
 
+            })
         // ✔️ Done button → toggles "done" class and removes after 3s
-        document.querySelectorAll(".add-btn")[i].addEventListener("click", function() {
-            let isDone = this.parentElement.previousElementSibling.classList.toggle("done");
-             if (isDone) {
-
-              setTimeout(() => {
+            add.addEventListener("click", function() {
+             let underline = this.parentElement.previousElementSibling.classList.toggle("done");
+             
+             if (underline) {
+                
+              timer =  setTimeout(() => {
                 this.parentElement.parentElement.remove();
             }, 3000);
         }
             else {
-                clearTimeout()
+                clearTimeout(timer)
             }
+            
     }
 )
         
-    }
+    
 }
