@@ -80,3 +80,7 @@ body {
 .done {
     text-decoration-line: line-through;
 }
+
+.text-color {
+    color:rgb(219, 219, 219);
+}
