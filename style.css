@@ -40,7 +40,7 @@ body {
     padding: 0;
     background: linear-gradient( to right, #415E72, #17313E);
     background-size: contain;
-    animation: bodyGradient 3s infinite linear;
+    animation: bodyGradient 4s infinite linear;
 }
 .container{
     animation: slideAnimation 1s ease-out;

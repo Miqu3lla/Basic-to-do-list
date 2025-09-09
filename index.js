@@ -48,10 +48,6 @@ function todo () {
 
     // Append button group to the list item
     li.appendChild(btnGroup);
-
-    // Get all button containers (so you can add listeners to each)
-    let buton = document.querySelectorAll(".btn-container").length;
-    
         // ❌ Remove button → deletes the list item immediately
             remove.addEventListener("click", function(){
              li.classList.add("list-remove-animation")
