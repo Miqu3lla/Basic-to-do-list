@@ -1,7 +1,4 @@
-// Add task when the main "Add" button is clicked
-document.querySelector("button").addEventListener("click", function(){
-    todo()
-})
+
 
 // Add task when Enter is pressed inside the input field
 document.querySelector(".task").addEventListener("keydown", function(event){
@@ -21,6 +18,7 @@ function todo () {
     
     //create a span text for the text inside 
     let text = document.createElement("span");
+    text.classList.add("span-text")
 
     // Set the text of the new list item in the span
     text.textContent = input;
@@ -60,7 +58,6 @@ function todo () {
              li.addEventListener("animationend", () => {
                 this.parentElement.parentElement.remove();
              });
-            
 
             })
         // ✔️ Done button → toggles "done" class and removes after 3s
