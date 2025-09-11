@@ -14,7 +14,11 @@ function todo () {
     let input = document.querySelector(".task").value; // get input value
 
     // If input is empty, warn the user and stop
-     input == "" ? alert("please input a Text"): null; 
+     if (input == "" ) {
+        alert("please enter a Text")
+        return
+     }
+    
     //create a span text for the text inside 
     let text = document.createElement("span");
     text.classList.add("span-text")
