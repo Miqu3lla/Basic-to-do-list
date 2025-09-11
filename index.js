@@ -48,6 +48,9 @@ function todo () {
 
     // Append button group to the list item
     li.appendChild(btnGroup);
+
+
+    
         // ❌ Remove button → deletes the list item immediately
             remove.addEventListener("click", function(){
              li.classList.add("list-remove-animation")
@@ -60,10 +63,10 @@ function todo () {
             add.addEventListener("click", function() {
              let underline = this.parentElement.previousElementSibling.classList.toggle("done");
              this.parentElement.previousElementSibling.classList.toggle("text-color");
-             return underline ? timer =  setTimeout(() => {this.parentElement.parentElement.remove();
-            },2500) : clearTimeout(timer);
-
-
+             
+             underline ? timer =  setTimeout(() => {li.classList.add("list-remove-animation"), this.parentElement.parentElement.onanimationend = () => {this.parentElement.parentElement.remove();
+            }},2500) : clearTimeout(timer);
+            
             
             
     }
