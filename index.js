@@ -14,8 +14,7 @@ function todo () {
     let input = document.querySelector(".task").value; // get input value
 
     // If input is empty, warn the user and stop
-     input == "" ? alert("please input a Text"): {}; // stop function here so empty items don’t get added
-    
+     input == "" ? alert("please input a Text"): null; 
     //create a span text for the text inside 
     let text = document.createElement("span");
     text.classList.add("span-text")
@@ -49,23 +48,23 @@ function todo () {
     // Append button group to the list item
     li.appendChild(btnGroup);
 
-
     
-        // ❌ Remove button → deletes the list item immediately
-            remove.addEventListener("click", function(){
-             li.classList.add("list-remove-animation")
-             li.addEventListener("animationend", () => {
-                this.parentElement.parentElement.remove();
-             });
+    
+// ❌ Remove button → deletes the list item immediately
+    remove.addEventListener("click", function(){
+        li.classList.add("list-remove-animation")
+        li.addEventListener("animationend", () => {
+        this.parentElement.parentElement.remove();
+        });
 
-            })
-        // ✔️ Done button → toggles "done" class and removes after 3s
-            add.addEventListener("click", function() {
-             let underline = this.parentElement.previousElementSibling.classList.toggle("done");
-             this.parentElement.previousElementSibling.classList.toggle("text-color");
-             
-             underline ? timer =  setTimeout(() => {li.classList.add("list-remove-animation"), this.parentElement.parentElement.onanimationend = () => {this.parentElement.parentElement.remove();
-            }},2500) : clearTimeout(timer);
+    })
+// ✔️ Done button → toggles "done" class and removes after 3s
+    add.addEventListener("click", function() {
+        let underline = this.parentElement.previousElementSibling.classList.toggle("done");
+        this.parentElement.previousElementSibling.classList.toggle("text-color");
+        
+        underline ? timer =  setTimeout(() => {li.classList.add("list-remove-animation"), li.addEventListener("animationend", () => {this.parentElement.parentElement.remove();
+    })},2500) : clearTimeout(timer);
             
             
             
